@@ -8,13 +8,10 @@ io.on('connection', client => {
 
     client.on('disconnect', () => { 
         console.log('cliente desconectado asi que abrete que tu pagina vale verga');
-     });
+    });
 
-    client.on('mensaje', ( payload ) => {
-        console.log('Mensaje!', payload);
-
-        io.emit( 'mensaje', {admin: 'Gybram es el admin =D'});
-    })
-
-
+    // client.on('mensaje', ( payload ) => {
+    //     console.log('Mensaje!', payload);
+    //     io.emit( 'mensaje', {admin: 'Gybram es el admin =D'});
+    // })
 });
