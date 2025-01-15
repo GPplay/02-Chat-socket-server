@@ -6,6 +6,9 @@ require('dotenv').config();
 // app de expres
 const app = exprees();
 
+//base de datos
+dbConnection();
+
 // node server
 const server = require('http').createServer(app);
 module.exports.io = require('socket.io')(server);
