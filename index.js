@@ -3,10 +3,6 @@ const path = require('path');
 const { dbConnection } = require('./database/config');
 require('dotenv').config();
 
-
-// DB Config
-require('./database/config').dbConnection();
-
 // app de expres
 const app = exprees();
 
