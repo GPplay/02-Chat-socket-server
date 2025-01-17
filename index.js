@@ -21,5 +21,5 @@ app.use( exprees.static( publicPath ));
 
 server.listen(process.env.PORT , ( err )=>{
     if(err) throw new Error(err);
-    console.log('servidor corriendo en puerto!!!!: ', process.env.PORT)
+    console.log('servidor corriendo en puerto!: ', process.env.PORT)
 })
