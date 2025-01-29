@@ -6,6 +6,9 @@ require('dotenv').config();
 // app de expres
 const app = exprees();
 
+//lectura y parseo del body
+app.use( exprees.json() );
+
 //base de datos
 dbConnection();
 
@@ -16,8 +19,13 @@ require('./sockets/socket');
 
 //path
 const publicPath = path.resolve(__dirname, 'public')
-
 app.use( exprees.static( publicPath ));
+
+
+
+//mis rutas
+app.use('/api/login', require('./routes/auth'));
+
 
 server.listen(process.env.PORT , ( err )=>{
     if(err) throw new Error(err);
