@@ -3,16 +3,12 @@
 */
 
 const {Router, response}=  require('express');
+const { crearUsuario } = require('../controllers/authController');
 
 const router = Router();
 
 
-router.post('/new', (req, res = response) => {
-    res.json({
-        ok: true,
-        msg: 'Crear usuario'
-    })
-});
+router.post('/new', crearUsuario);
 
 
 
