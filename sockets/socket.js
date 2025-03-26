@@ -3,11 +3,11 @@ const {io} = require('../index');
 
 //mensajes de sockets
 io.on('connection', client => {
-    console.log('Al fin se conecto alguien a esta monda perro hpta');
+    console.log('Conecto');
 
 
     client.on('disconnect', () => { 
-        console.log('cliente desconectado asi que abrete que tu pagina vale verga');
+        console.log('cliente desconectado');
     });
 
     // client.on('mensaje', ( payload ) => {
