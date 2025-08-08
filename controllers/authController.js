@@ -1,12 +1,20 @@
 const { response } = require("express")
-const { validationResult } = require("express-validator")
-const { validarCampos } = require("../middleware/validar-campos")
+
+const Usuario = require('../models/usuario');
+const { body } = require("express-validator");
 
 
 const crearUsuario = async (req, res = response) => {
+
+    const usuario = new Usuario(req.body);
+
+
+    await usuario.save();
+
+
     res.json({
         ok: true,
-        msg: 'Crear usuario!!!'
+        body: req.body
     })
 }
 
