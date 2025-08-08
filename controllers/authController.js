@@ -48,6 +48,30 @@ const crearUsuario = async (req, res = response) => {
 }
 
 
+const loginUsuario = async (req, res = response) => {
+    const { email, password } = req.body;
+    try {
+        // Verificar email
+        const existeEmail = await Usuario.findOne({ email });
+        const ExistePassword = await Usuario.findOne({ password });
+
+        if(existeEmail && ExistePassword){
+            res.json({
+                ok: true,
+                usuario,
+            })
+        }
+        
+    }catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'credenciales no validas'
+        });
+    }
+}
+
 module.exports = { 
-    crearUsuario
+    crearUsuario,
+    loginUsuario
  }

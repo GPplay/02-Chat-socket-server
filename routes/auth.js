@@ -3,8 +3,8 @@
 */
 
 const {Router, response}=  require('express');
-const { crearUsuario } = require('../controllers/authController');
 const { check } = require('express-validator');
+const { crearUsuario , loginUsuario} = require('../controllers/authController');
 const { validarCampos } = require('../middleware/validar-campos');
 
 const router = Router();
@@ -18,6 +18,13 @@ router.post('/new', [
     validarCampos
 ],crearUsuario);
 
+//validar post: /
+//validar email y contraseña
 
+router.post('/', [
+    check("email", "El email es obligatorio").not().isEmpty(),
+    check("password", "Password vacio").not().isEmpty(),
+    validarCampos
+    ],loginUsuario);
 
 module.exports = router;
