@@ -52,21 +52,20 @@ const loginUsuario = async (req, res = response) => {
     const { email, password } = req.body;
     try {
         // Verificar email
-        const existeEmail = await Usuario.findOne({ email });
+        /* const existeEmail = await Usuario.findOne({ email });
         const ExistePassword = await Usuario.findOne({ password });
+        */
 
-        if(existeEmail && ExistePassword){
-            res.json({
+        res.json({
                 ok: true,
-                usuario,
+                msg: "login correcto",
             })
-        }
-        
+
     }catch (error) {
         console.log(error);
         res.status(500).json({
             ok: false,
-            msg: 'credenciales no validas'
+            msg: 'hable con el administrador'
         });
     }
 }
